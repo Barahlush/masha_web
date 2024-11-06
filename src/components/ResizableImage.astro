@@ -18,12 +18,12 @@ const { src, alt, width = 600, height = 400 } = Astro.props;
     class="enlarge-trigger focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg overflow-hidden"
     aria-label={`Enlarge ${alt}`}
   >
-    <Image
-      src={src}
+    <img
+      src={src.src}
       alt={alt}
       width={width}
       height={height}
-      class="w-full h-auto transition-transform duration-200 hover:scale-105"
+      class="transition-transform duration-200 hover:scale-105"
     />
   </button>
 
