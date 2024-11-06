@@ -7,7 +7,6 @@ import icon from "astro-icon";
 
 import sitemap from "@astrojs/sitemap";
 
-
 import partytown from "@astrojs/partytown";
 
 import mdx from "@astrojs/mdx";
@@ -15,7 +14,13 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   site: "https://mariafedotova.netlify.app",
-  integrations: [tailwind({
-    applyBaseStyles: false,
-  }), icon(), sitemap(), partytown(), mdx()],
+  integrations: [
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    icon(),
+    sitemap(),
+    partytown(),
+    mdx(),
+  ],
 });
