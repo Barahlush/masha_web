@@ -1,0 +1,48 @@
+---
+// src/components/Hero.astro
+import { Image } from "astro:assets";
+import NavLink from "./NavLink.astro";
+import hero from "../assets/hero.png";
+---
+
+<section
+  class="grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] w-full gap-12 font-medium text-xl"
+>
+  <!-- Left Column: Main Content -->
+  <div class="md:col-start-1 md:col-end-2 flex flex-col gap-6">
+    <p class="text-xl">
+      Я психолог,<br />
+      IFS терапевт
+    </p>
+
+    <p class="text-lg text-pretty">
+      Я помогу вам посмотреть на себя <span class="text-amber-600"
+        >не осуждающим</span
+      >, любознательным взглядом. Помогу увидеть большое пространство
+      <span class="text-amber-600">возможностей</span> в вашей жизни – и осмелиться
+      превратить возможности в <span class="text-amber-600">действия</span>
+    </p>
+  </div>
+
+  <!-- Middle Column: Image -->
+  <Image
+    src={hero}
+    alt="Мария Федотова"
+    class="rounded-lg object-cover md:col-start-2 md:col-end-3"
+  />
+
+  <!-- Right Column: Navigation -->
+  <nav
+    class="md:col-start-3 md:col-end-4 flex flex-col gap-4 text-stone-700 font-medium m-12"
+  >
+    <NavLink href="#experience" text="Мой опыт" />
+    <NavLink href="#format" text="Формат работы" />
+    <NavLink href="#contacts" text="Контакты" />
+  </nav>
+</section>
+<a
+  href="https://t.me/mariafemina"
+  class="mt-12 text-xl font-medium text-amber-600 hover:text-amber-500 w-full block text-center underline decoration-gray-400 decoration-1 underline-offset-4 hover:decoration-amber-500"
+>
+  Записаться
+</a>

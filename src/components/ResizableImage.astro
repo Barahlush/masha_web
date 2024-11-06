@@ -1,0 +1,104 @@
+---
+// EnlargeableImage.astro
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+
+interface Props {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+}
+
+const { src, alt, width = 600, height = 400 } = Astro.props;
+---
+
+<div class="relative inline-block enlarge-image-wrapper">
+  <button
+    class="enlarge-trigger focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg overflow-hidden"
+    aria-label={`Enlarge ${alt}`}
+  >
+    <Image
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      class="w-full h-auto transition-transform duration-200 hover:scale-105"
+    />
+  </button>
+
+  <div
+    class="modal-overlay fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50"
+    role="dialog"
+    aria-modal="true"
+    aria-label={`Enlarged view of ${alt}`}
+  >
+    <div class="relative max-w-[90vw] max-h-[90vh]">
+      <button
+        class="close-modal absolute -top-10 right-0 p-2 text-white hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-white rounded-full"
+        aria-label="Close enlarged image"
+      >
+        <Icon name="tabler:x" class="w-6 h-6" />
+      </button>
+      <Image
+        src={src}
+        alt={alt}
+        class="max-w-full max-h-[85vh] object-contain"
+      />
+    </div>
+  </div>
+</div>
+
+<script>
+  function setupImageEnlargement() {
+    const wrappers = document.querySelectorAll(".enlarge-image-wrapper");
+
+    wrappers.forEach((wrapper) => {
+      const trigger = wrapper.querySelector(".enlarge-trigger");
+      const modal = wrapper.querySelector(".modal-overlay");
+      const closeBtn = wrapper.querySelector(".close-modal");
+
+      if (!trigger || !modal || !closeBtn) return;
+
+      const showModal = () => {
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+        document.body.style.overflow = "hidden";
+      };
+
+      const hideModal = () => {
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+        document.body.style.overflow = "";
+      };
+
+      trigger.addEventListener("click", showModal);
+
+      closeBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        hideModal();
+      });
+      const handleOutsideClick = (e: MouseEvent) => {
+        // Check if click is outside both the image and close button
+        if (modal?.contains(e.target as Node)) {
+          hideModal();
+        }
+      };
+
+      modal.addEventListener("click", handleOutsideClick);
+
+      // Handle keyboard events
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+          hideModal();
+        }
+      });
+    });
+  }
+
+  // Setup on initial load
+  setupImageEnlargement();
+
+  // Handle dynamic content updates (if using View Transitions or similar)
+  document.addEventListener("astro:page-load", setupImageEnlargement);
+</script>

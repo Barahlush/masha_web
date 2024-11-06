@@ -1,0 +1,14 @@
+---
+const { href, text } = Astro.props;
+import { Icon } from "astro-icon/components";
+
+---
+<div class="flex flex-row gap-3 ">
+    <Icon name="twemoji:orange-circle" class="text-lg" is:inline />
+    <a href={href} class="text-base">
+      <span
+        class="underline decoration-1 decoration-gray-400 underline-offset-4 hover:decoration-amber-500"
+        >{text}</span
+      >
+    </a>
+</div>

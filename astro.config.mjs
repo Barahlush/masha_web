@@ -1,16 +1,21 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
-import tailwind from '@astrojs/tailwind';
+import tailwind from "@astrojs/tailwind";
 
-import icon from 'astro-icon';
+import icon from "astro-icon";
 
-import sitemap from '@astrojs/sitemap';
+import sitemap from "@astrojs/sitemap";
 
-import image from '@astrojs/image';
+
+import partytown from "@astrojs/partytown";
+
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://mariafedotova.com',
-  integrations: [tailwind(), icon(), sitemap(), image()]
+  site: "https://mariafedotova.netlify.app",
+  integrations: [tailwind({
+    applyBaseStyles: false,
+  }), icon(), sitemap(), partytown(), mdx()],
 });
