@@ -6,10 +6,10 @@ import hero from "../assets/hero.png";
 ---
 
 <section
-  class="grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] w-full gap-12 font-medium text-xl"
+  class="grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] w-full gap-12 font-medium text-xl"
 >
   <!-- Left Column: Main Content -->
-  <div class="md:col-start-1 md:col-end-2 flex flex-col gap-6">
+  <div class="lg:col-start-1 lg:col-end-2 flex flex-col gap-6">
     <p class="text-xl">
       Я психолог,<br />
       IFS терапевт
@@ -28,12 +28,12 @@ import hero from "../assets/hero.png";
   <Image
     src={hero}
     alt="Мария Федотова"
-    class="rounded-lg object-cover md:col-start-2 md:col-end-3"
+    class="rounded-lg object-cover lg:col-start-2 lg:col-end-3"
   />
 
   <!-- Right Column: Navigation -->
   <nav
-    class="md:col-start-3 md:col-end-4 flex flex-col gap-4 text-stone-700 font-medium m-12"
+    class="lg:col-start-3 lg:col-end-4 flex flex-col gap-4 text-stone-700 font-medium m-12"
   >
     <NavLink href="#мой-опыт" text="Мой опыт" />
     <NavLink href="#формат-работы" text="Формат работы" />
