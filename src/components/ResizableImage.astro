@@ -4,7 +4,7 @@ import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 
 interface Props {
-  src: string;
+  src: ImageMetadata;
   alt: string;
   width?: number;
   height?: number;
@@ -85,7 +85,7 @@ const { src, alt, width = 600, height = 400 } = Astro.props;
         }
       };
 
-      modal.addEventListener("click", handleOutsideClick);
+      modal.addEventListener("click", handleOutsideClick as EventListener);
 
       // Handle keyboard events
       window.addEventListener("keydown", (e) => {
