@@ -1,10 +1,17 @@
 ---
 import { Image } from "astro:assets";
-const { href, text, icon } = Astro.props;
+const { href, text, icon, isLink = true } = Astro.props;
 
 ---
-<a href={href} class="flex flex-row w-fit items-center gap-2">
-  <Image src={icon} alt={text} width="64" />
-  {text}
-</a>
 
+{isLink ? (
+  <a href={href} class="flex flex-row w-fit items-center gap-2">
+    <Image src={icon} alt={text} width="64" />
+  {text}
+  </a>
+) : (
+  <div class="flex flex-row w-fit items-center gap-2">
+    <Image src={icon} alt={text} width="64" />
+    {text}
+  </div>
+)}
