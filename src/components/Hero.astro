@@ -32,7 +32,7 @@ const optimizedImage = await getImage({
 
   <!-- Middle Column: Image -->
   <Image
-    src={optimizedImage.options.src}
+    src={optimizedImage.options.src as string}
     width={optimizedImage.attributes.width as number}
     height={optimizedImage.attributes.height as number}
     alt="Мария Федотова"
