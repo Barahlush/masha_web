@@ -10,7 +10,7 @@ interface Props {
   height?: number;
 }
 
-const { src, alt, width = 600, height = 400 } = Astro.props;
+const { src, alt, width = 600 } = Astro.props;
 ---
 
 <div class="relative inline-block enlarge-image-wrapper">
@@ -22,7 +22,6 @@ const { src, alt, width = 600, height = 400 } = Astro.props;
       src={src.src}
       alt={alt}
       width={width}
-      height={height}
       class="transition-transform duration-200 hover:scale-105"
     />
   </button>
