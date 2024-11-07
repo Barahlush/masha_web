@@ -1,9 +1,16 @@
 ---
 // src/components/Hero.astro
-import { Image } from "astro:assets";
+import { getImage, Image } from "astro:assets";
 import NavLink from "./NavLink.astro";
+import hero from "../assets/hero.png";
+const optimizedImage = await getImage({
+  src: hero,
+  format: "webp",
+});
 ---
-
+<Fragment slot="head">
+  <link rel="preload" href={optimizedImage.src} as="image" />
+</Fragment>
 <section
   class="grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] w-full gap-12 font-medium text-xl"
 >
@@ -25,11 +32,11 @@ import NavLink from "./NavLink.astro";
 
   <!-- Middle Column: Image -->
   <Image
-    src="/hero.png"
+    src={optimizedImage.options.src}
+    width={optimizedImage.attributes.width as number}
+    height={optimizedImage.attributes.height as number}
     alt="Мария Федотова"
     class="rounded-lg object-cover lg:col-start-2 lg:col-end-3"
-    width={1455}
-    height={1321}
   />
 
   <!-- Right Column: Navigation -->

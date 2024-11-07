@@ -19,7 +19,6 @@ const description = "Психологическая помощь, IFS терап
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
-    <link rel="preload" href="/hero.png" as="image" />
 
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website" />
@@ -88,6 +87,8 @@ const description = "Психологическая помощь, IFS терап
           "Segoe UI Symbol";
       }
     </style>
+
+    <slot name="head" />
   </head>
   <body
     class="bg-[#F9F9F9] grid grid-cols-1 lg:grid-cols-[96px_1fr_96px] grid-rows-[auto_1fr] w-full pb-32"
