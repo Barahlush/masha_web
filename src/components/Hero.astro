@@ -2,7 +2,6 @@
 // src/components/Hero.astro
 import { Image } from "astro:assets";
 import NavLink from "./NavLink.astro";
-import hero from "../assets/hero.png";
 ---
 
 <section
@@ -26,9 +25,11 @@ import hero from "../assets/hero.png";
 
   <!-- Middle Column: Image -->
   <Image
-    src={hero}
+    src="/hero.png"
     alt="Мария Федотова"
     class="rounded-lg object-cover lg:col-start-2 lg:col-end-3"
+    width={1455}
+    height={1321}
   />
 
   <!-- Right Column: Navigation -->
