@@ -13,7 +13,8 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://mariafedotova.netlify.app",
+  compressHTML: true,    
+  site: "https://mfedotova.com",
   integrations: [
     tailwind({
       applyBaseStyles: false,

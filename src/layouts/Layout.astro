@@ -1,33 +1,70 @@
 ---
-const { title, description } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const title = "IFS психотерапевт Мария Федотова";
+const description = "IFS психотерапевт Мария Федотова. Психологические консультации онлайн.";
+
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="65d034a9-4302-44e6-9d8f-950188525ecf"></script>
+    <script
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="65d034a9-4302-44e6-9d8f-950188525ecf"></script>
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
-    
+
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    
+    <meta property="og:url" content="https://mfedotova.com" />
+    <meta property="og:image" content="https://mfedotova.com/hero.png" />
+
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="https://mfedotova.com/hero.png" />
+    <meta
+      name="twitter:title"
+      content="IFS психотерапевт Мария Федотова"
+    />
+    <meta
+      name="twitter:description"
+      content="IFS психотерапевт Мария Федотова"
+    />
+    <meta name="twitter:image" content="https://mfedotova.com/hero.png" />
+
+    <!-- Additional meta tags for local SEO -->
+    <meta name="geo.region" content="KZ" />
+    <meta name="geo.placename" content="Almaty" />
+    <meta name="geo.position" content="43.238949;76.851248" />
+    <meta name="ICBM" content="43.238949, 76.851248" />
+
+    <!-- Language and locale -->
+    <meta name="language" content="Russian" />
+    <meta property="og:locale" content="ru_RU" />
+
+    <!-- Keywords (less important for modern SEO but still used) -->
+    <meta
+      name="keywords"
+      content="психолог, психотерапия, психологическое консультирование, психологическая помощь, терапия стресса, терапия депрессии, IFS, IFS терапия, субличности"
+    />
+
     <!-- Schema.org for Google -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "@id": "http://mariafedotova.netlify.app",
+        "@type": "ProfessionalService",
+        "@id": "https://mfedotova.com",
         "name": "Психолог Мария Федотова",
-        "image": "http://mariafedotova.netlify.app/favicon.svg",
+        "image": "https://mfedotova.com/favicon.svg",
         "description": "{description}",
+        "url": "https://mfedotova.com",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Казахстан, Алматы",
@@ -38,19 +75,29 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
     </script>
 
-  <style is:global>
-    :root {
-      font-variant-ligatures: common-ligatures;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-    }
-  </style>
+    <style is:global>
+      :root {
+        font-variant-ligatures: common-ligatures;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+          "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji",
+          "Segoe UI Symbol";
+      }
+    </style>
   </head>
-  <body class="bg-[#F9F9F9] grid grid-cols-1 lg:grid-cols-[96px_1fr_96px] grid-rows-[auto_1fr] w-full pb-32">
-    <header class="text-2xl font-bold lg:col-start-2 lg:col-end-3 row-start-1 row-end-2 py-6 lg:py-12 lg:pt-32 px-8 lg:px-0">Привет! Меня зовут Мария Федотова</header>
-    <main class="flex flex-col lg:col-start-2 lg:col-end-3 mx-8 lg:mx-0 text-stone-800 transition-all duration-300 ease-in-out">
+  <body
+    class="bg-[#F9F9F9] grid grid-cols-1 lg:grid-cols-[96px_1fr_96px] grid-rows-[auto_1fr] w-full pb-32"
+  >
+    <header
+      class="text-2xl font-bold lg:col-start-2 lg:col-end-3 row-start-1 row-end-2 py-6 lg:py-12 lg:pt-32 px-8 lg:px-0"
+    >
+      Привет! Меня зовут Мария Федотова
+    </header>
+    <main
+      class="flex flex-col lg:col-start-2 lg:col-end-3 mx-8 lg:mx-0 text-stone-800 transition-all duration-300 ease-in-out"
+    >
       <slot />
     </main>
   </body>
